@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Escola do Lemão</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <a id="logo" href="#"><img src="{% static 'imagens/logosemfundo.png' %}" alt="Lemao Logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li class="lis"><a href="index.html">Home</a></li>
+                <li class="lis"><a href={% url 'cad_carros' %}>Cadastro de Carros</a></li>
+                <li class="lis"><a href="#">Cadastro de Motoristas</a></li>
+                <li class="lis"><a href="agenda.html">Agenda</a></li>
+            </ul>
+        </div>
+    </header>
+
+    {% if messages %}
+        <ul class="mensagem_do_servidor" style="background: #7d7f81; padding: 24px; text-align:center; color: #fff;">
+            {% for mensagem in messages %}
+                <li style="list-style: none;" {% if mensagem.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{mensagem}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <section class="cadastro">
+
+        <h1>Cadastro de Motoristas</h1>
+
+        <form id="form" class="form" method="POST" action="{% url 'salvar_driver_novo' %}">{% csrf_token %}
+            <label for="nomeDriver">Nome do Motorista:</label>
+            <input type="text" id="nomeDriver" name="nomeDriver" required>
+
+            <label for="anoDriver">Data de Nascimento:</label>
+            <input type="date" id="anoDriver" name="anoDriver" required>
+
+            <label for="cnhDriver">Tipo CNH:</label>
+            <input type="text" id="cnhDriver" name="cnhDriver" required>
+    
+            <input class="button" type="submit" value="Enviar">
+        </form>
+    </section>
+</body>
+</html>
