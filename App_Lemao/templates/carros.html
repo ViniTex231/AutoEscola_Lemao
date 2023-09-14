@@ -10,47 +10,17 @@
 </head>
 <body>
     <header class="header">
-        <a id="logo" href="#"><img src="{% static 'imagens/logosemfundo.png' %}" alt="Lemao Logo"></a>
+        <a id="logo" href="#"><img src="{% static 'images/logosemfundo.png' %}" alt="Lemao Logo"></a>
 
         <div>
             <ul id="navbar">
-                <li class="lis"><a href="index.html">Home</a></li>
-                <li class="lis"><a href="#">Cadastro de Carros</a></li>
-                <li class="lis"><a href="alunos.html">Cadastro de Motoristas</a></li>
+                <li class="lis"><a href="{% url 'abre_index' %}">Home</a></li>
+                <li class="lis"><a href="#">Carros</a></li>
+                <li class="lis"><a href="{% url 'drivers' %}">Motoristas</a></li>
                 <li class="lis"><a href="agenda.html">Agenda</a></li>
             </ul>
         </div>
     </header>
-    
-    {% if messages %}
-        <ul class="mensagem_do_servidor" style="background: #7d7f81; padding: 24px; text-align:center; color: #fff;">
-            {% for mensagem in messages %}
-                <li style="list-style: none;" {% if mensagem.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{mensagem}}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    <section class="cadastro">
-        <h1>Cadastro de Veículos</h1>
-
-
-        <form id='form' class='form' method='POST' action='{% url 'salvar_carro_novo' %}'>{% csrf_token %}
-            <label for="nomeCarro">Nome do Carro:</label>
-            <input type="text" id="nomeCarro" name="nomeCarro" required>
-
-            <label for="placaCarro">Placa do Carro:</label>
-            <input type="text" id="placaCarro" name="placaCarro" required>
-
-            <label for="anoCarro">Ano do Carro:</label>
-            <input type="number" id="anoCarro" name="anoCarro" required>
-
-            <label for="corCarro">Cor do Carro:</label>
-            <input type="text" id="corCarro" name="corCarro" required>
-
-            <label for="donoCarro">Dono do Carro:</label>
-            <input type="text" id="donoCarro" name="donoCarro" required>
-    
-            <input class="button" type="submit" value="Enviar">
-        </form>
-    </section>
+    <h1>Carros</h1>
 </body>
 </html>
