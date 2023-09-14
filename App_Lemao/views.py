@@ -45,3 +45,8 @@ def salvar_carro_novo(request):
         grava_carro.save()
         messages.info(request, 'Veículo ' + nome + ' cadastrado com sucesso!')
         return render(request, 'carros.html')
+    
+def cons_carros(request):
+    dado_pesquisa_nome = request.POST.get('nomeCarro')
+    dado_pesquisa_placa = request.POST.get('placaCarro')
+    dado_pesquisa_dono = request.POST.get('donoCarro')

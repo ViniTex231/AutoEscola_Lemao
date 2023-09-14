@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Carros</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <a id="logo" href="#"><img src="{% static 'imagens/logosemfundo.png' %}" alt="Lemao Logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li class="lis"><a href="#">Home</a></li>
+                <li class="lis"><a href={% url 'cad_carros' %}>Cadastro de Carros</a></li>
+                <li class="lis"><a href="alunos.html">Cadastro de Motoristas</a></li>
+                <li class="lis"><a href="agenda.html">Agenda</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <form id="form" class="form" method="POST" action="{% url 'cons_carros' %}">{% csrf_token %}
+        <div class="form-content">
+            <br>
+            <label for="carros">Carro</label>
+            <input type="text" id="nomeCarro" name="nomeCarro" placeholder="Digite o nome do carro">
+        </div>
+        <div class="form-content">
+            <br>
+            <label for="carros">Placa</label>
+            <input type="text" id="placaCarro" name="placaCarro" placeholder="Digite a placa do carro">
+        </div>
+        <div class="form-content">
+            <br>
+            <label for="carros">Dono</label>
+            <input type="text" id="donoCarro" name="donoCarro" placeholder="Digite o dono do carro">
+        </div>
+
+        <div class="botoes">
+            <div class="botao_consultar">
+                <button id="btnConsultar" type="submit" class="button">Consultar</button>
+            </div>
+        </div>
+    </form>
+
+
+</body>
+</html>
