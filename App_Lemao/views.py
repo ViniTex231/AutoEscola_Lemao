@@ -122,3 +122,15 @@ def cons_drivers(request):
     else:
         drivers = Driver.objects.all()
         return render(request, 'cons_drivers.html', {'dados_drivers' : drivers})
+    
+def edit_carros(request, id):
+    dados_editar = get_object_or_404(Carros, pk=id)
+    return render(request, 'edit_carros.html', {'dados_carros' : dados_editar})
+
+def salvar_carro_editado(request):
+    if (request.method == 'POST'):
+        id_carro = request.POST.get('id_carro')
+        nomeCarro = request.POST.get('nomeCarro')
+        nomeCarro = request.POST.get('nomeCarro')
+        nomeCarro = request.POST.get('nomeCarro')
+        nomeCarro = request.POST.get('nomeCarro')

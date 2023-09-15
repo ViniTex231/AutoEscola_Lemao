@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Escola do Lemão</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/carros.css' %}">
 </head>
 <body>
     <header class="header">
@@ -21,6 +21,22 @@
             </ul>
         </div>
     </header>
-    <h1>Carros</h1>
+    
+    <section id="services">
+        <div class="pro-container">
+            <div class="pro">
+                <img src="{% static 'images/carroadd.png' %}" alt="carrocadastrar">
+                <div class="des">
+                    <a href="{% url 'cad_carros' %}">Cadastrar Carros</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="{% static 'images/carropesquisa.png' %}" alt="carropesquisa">
+                <div class="des">
+                    <a href="{% url 'cons_carros' %}">Consultar Carros</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
