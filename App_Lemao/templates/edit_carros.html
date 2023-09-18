@@ -33,9 +33,11 @@
         <h1>Editar Veículos</h1>
 
 
-        <form id='form' class='form' method='POST' action='{% url 'salvar_carro_editado' %}'>{% csrf_token %}
+        <form id='form' class='form' method='POST' action="{% url 'salvar_carro_editado' %}">
+            {% csrf_token %}
             <label for="nomeCarro">Nome do Carro:</label>
-            <input type="text" id="nomeCarro" value="{{dados_carros.nomeCarro}}" required>
+            <input type="hidden" name="id_carro" id="id_carro" value="{{dados_carros.id}}" />
+            <input type="text" id="nomeCarro" name="nomeCarro" value="{{dados_carros.nomeCarro}}" required>
 
             <label for="placaCarro">Placa do Carro:</label>
             <input type="text" id="placaCarro" value="{{dados_carros.placaCarro}}" required>

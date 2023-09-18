@@ -11,7 +11,9 @@ urlpatterns = [
     path('salvar_carro_novo/', views.salvar_carro_novo, name='salvar_carro_novo'),
     path('cons_carros/', views.cons_carros, name='cons_carros'),
     path('cons_drivers/', views.cons_drivers, name='cons_drivers'),
-    path('edit_carros/<int:id>', views.edit_carros, name='edit_carros'),
-    path('salvar_carro_editado', views.salvar_carro_editado, name='salvar_carro_editado'),
+    path('edit_carros/<int:pk>/', views.edit_carros, name='edit_carros'),
+    path('salvar_carro_editado/', views.salvar_carro_editado, name='salvar_carro_editado'),
+    path('delete_carro/<int:id>', views.delete_carro, name='delete_carro'),
+    path('delete_driver/<int:id>', views.delete_driver, name='delete_driver'),
     
 ]

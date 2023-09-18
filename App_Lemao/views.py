@@ -123,14 +123,42 @@ def cons_drivers(request):
         drivers = Driver.objects.all()
         return render(request, 'cons_drivers.html', {'dados_drivers' : drivers})
     
-def edit_carros(request, id):
-    dados_editar = get_object_or_404(Carros, pk=id)
+def edit_carros(request, pk):
+    dados_editar = get_object_or_404(Carros, id=pk)
     return render(request, 'edit_carros.html', {'dados_carros' : dados_editar})
 
 def salvar_carro_editado(request):
-    if (request.method == 'POST'):
+    if request.method == 'POST':
         id_carro = request.POST.get('id_carro')
         nomeCarro = request.POST.get('nomeCarro')
-        nomeCarro = request.POST.get('nomeCarro')
-        nomeCarro = request.POST.get('nomeCarro')
-        nomeCarro = request.POST.get('nomeCarro')
+        placaCarro = request.POST.get('placaCarro')
+        corCarro = request.POST.get('corCarro')
+        donoCarro = request.POST.get('donoCarro')
+
+        carro_editado = Carros.objects.get(id=id_carro)
+
+        carro_editado.nomeCarro = nomeCarro
+        carro_editado.placaCarro = placaCarro
+        carro_editado.corCarro = corCarro
+        carro_editado.donoCarro = donoCarro
+
+        carro_editado.save()
+
+        messages.info(request, 'Carro ' + nomeCarro + ' editado com sucesso!')
+        return render(request, 'cons_carros.html')
+
+def delete_carro(request, id):
+    carro_deletado = get_object_or_404(Carros, pk=id)
+    nome = carro_deletado.nome
+    carro_deletado.delete()
+
+    messages.info(request, 'Carro ' + nome + ' deletado com sucesso!')
+    return redirect('cons_carros')
+
+def delete_driver(request, id):
+    driver_deletado = get_object_or_404(Driver, pk=id)
+    nome = driver_deletado.nome
+    driver_deletado.delete()
+
+    messages.info(request, 'Motorista ' + nome + ' deletado com sucesso!')
+    return redirect('cons_drivers')
