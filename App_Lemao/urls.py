@@ -1,12 +1,17 @@
 from django.urls import path, include
 from . import views
+from .views import IndexView, CarrosView, DriversView, CadCarrosView, CadDriversView
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.abre_index, name='abre_index'),
-    path('carros/', views.carros, name='carros'),
-    path('drivers/', views.drivers, name='drivers'),
-    path('cad_carros/', views.cad_carros, name='cad_carros'),
-    path('cad_drivers/', views.cad_drivers, name='cad_drivers'),
+    path('', IndexView.as_view(), name='index'),
+    path('carros/', CarrosView.as_view(), name='carros'),
+    path('drivers/', DriversView.as_view(), name='drivers'),
+    path('cad_carros/', CadCarrosView.as_view(), name='cad_carros'),
+    path('cad_drivers/', CadDriversView.as_view(), name='cad_drivers'),
+    
     path('salvar_driver_novo/', views.salvar_driver_novo, name='salvar_driver_novo'),
     path('salvar_carro_novo/', views.salvar_carro_novo, name='salvar_carro_novo'),
     path('cons_carros/', views.cons_carros, name='cons_carros'),
@@ -17,3 +22,6 @@ urlpatterns = [
     path('delete_driver/<int:id>', views.delete_driver, name='delete_driver'),
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

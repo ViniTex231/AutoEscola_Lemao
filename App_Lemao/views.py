@@ -2,23 +2,30 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-from .models import Carros, Driver
+from .models import Carros, Driver, Servico, Funcionario
+from django.views.generic import TemplateView
 
 # Create your views here.
-def abre_index(request): #TODO
-    return render(request, 'index.html')
+class IndexView(TemplateView):
+    template_name = 'index.html'
 
-def carros(request): #TODO
-    return render(request, 'carros.html')
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['servicos'] = Servico.objects.order_by('?').all()
+        context['funcionarios'] = Funcionario.objects.order_by('?').all()
+        return context
 
-def drivers(request): #TODO
-    return render(request, 'drivers.html')
+class CarrosView(TemplateView):
+    template_name = 'carros.html'
 
-def cad_carros(request): #TODO
-    return render(request, 'cad_carros.html')
+class DriversView(TemplateView):
+    template_name = 'drivers.html'
 
-def cad_drivers(request): #TODO
-    return render(request, 'cad_alunos.html')
+class CadCarrosView(TemplateView):
+    template_name = 'cad_carros.html'
+
+class CadDriversView(TemplateView):
+    template_name = 'cad_alunos.html'
 
 def salvar_driver_novo(request):
     if (request.method == 'POST'):
