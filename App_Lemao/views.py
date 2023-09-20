@@ -5,19 +5,19 @@ from django.contrib.auth.decorators import login_required
 from .models import Carros, Driver
 
 # Create your views here.
-def abre_index(request):
+def abre_index(request): #TODO
     return render(request, 'index.html')
 
-def carros(request):
+def carros(request): #TODO
     return render(request, 'carros.html')
 
-def drivers(request):
+def drivers(request): #TODO
     return render(request, 'drivers.html')
 
-def cad_carros(request):
+def cad_carros(request): #TODO
     return render(request, 'cad_carros.html')
 
-def cad_drivers(request):
+def cad_drivers(request): #TODO
     return render(request, 'cad_alunos.html')
 
 def salvar_driver_novo(request):
