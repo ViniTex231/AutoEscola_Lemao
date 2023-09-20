@@ -169,3 +169,6 @@ def delete_driver(request, id):
 
     messages.info(request, 'Motorista ' + nome + ' deletado com sucesso!')
     return redirect('cons_drivers')
+
+class AgendaView(TemplateView):
+    template_name = "agenda.html"

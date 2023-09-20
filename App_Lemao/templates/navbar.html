@@ -1,0 +1,13 @@
+{% load static %}
+<header class="header">
+    <a id="logo" href="#"><img src="{% static 'images/logosemfundo.png' %}" alt="Lemao Logo"></a>
+
+    <div>
+        <ul id="navbar">
+            <li class="lis"><a href="{% url 'index' %}">Home</a></li>
+            <li class="lis"><a href="{% url 'carros' %}">Carros</a></li>
+            <li class="lis"><a href="{% url 'drivers' %}">Motoristas</a></li>
+            <li class="lis"><a href="{% url 'agenda' %}">Agenda</a></li>
+        </ul>
+    </div>
+</header>

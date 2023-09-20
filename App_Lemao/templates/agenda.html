@@ -1,13 +1,12 @@
 {% load static %}
 {% block content %}
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Escola do Lemão</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/carros.css' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'style/bootstrap.min.css' %}" >
     <!-- Icon -->
@@ -29,15 +28,23 @@
     {% include 'navbar.html' %}
     <!-- Navbar End -->
 
-    <!-- Services Start -->
-    {% include 'services.html' %}
-    <!-- Services End -->
-
-    <!-- Employers Start -->
-    {% include 'employers.html' %}
-    <!-- Employers End -->
+    <section id="services">
+        <div class="pro-container">
+            <div class="pro">
+                <img src="{% static 'images/agendadd.png' %}" alt="agendacadastrar">
+                <div class="des">
+                    <a href="{% url 'cad_carros' %}">Novo Horário</a>
+                </div>
+            </div>
+            <div class="pro">
+                <img src="{% static 'images/agendapesquisa.png' %}" alt="agendapesquisa">
+                <div class="des">
+                    <a href="{% url 'cons_carros' %}">Consultar Horários</a>
+                </div>
+            </div>
+        </div>
+    </section>
     
 {% endblock %}
-
 </body>
 </html>

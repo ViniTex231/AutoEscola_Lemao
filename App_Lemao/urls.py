@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-from .views import IndexView, CarrosView, DriversView, CadCarrosView, CadDriversView
+from .views import IndexView, CarrosView, DriversView, CadCarrosView, CadDriversView, AgendaView
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -11,6 +11,8 @@ urlpatterns = [
     path('drivers/', DriversView.as_view(), name='drivers'),
     path('cad_carros/', CadCarrosView.as_view(), name='cad_carros'),
     path('cad_drivers/', CadDriversView.as_view(), name='cad_drivers'),
+    path('agenda/', AgendaView.as_view(), name='agenda'),
+    path('cons_agenda')
     
     path('salvar_driver_novo/', views.salvar_driver_novo, name='salvar_driver_novo'),
     path('salvar_carro_novo/', views.salvar_carro_novo, name='salvar_carro_novo'),
