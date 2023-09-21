@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-from .models import Carros, Driver, Servico, Funcionario
-from django.views.generic import TemplateView
+from .models import Carros, Driver, Servico, Funcionario, Agenda
+from django.views.generic import TemplateView, DeleteView, FormView
+from django.urls import reverse_lazy
+from .forms import AgendaForm
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -172,3 +174,32 @@ def delete_driver(request, id):
 
 class AgendaView(TemplateView):
     template_name = "agenda.html"
+
+class AgendaConsView(TemplateView):
+    template_name = "cons_agenda.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(AgendaConsView, self).get_context_data(**kwargs)
+        context['agendas'] = Agenda.objects.all()
+        return context
+    
+class AgendaDeleteView(DeleteView):
+    model = Agenda
+    success_url = reverse_lazy("agenda")
+    template_name = "cons_agenda.html"
+
+class AgendaFormView(FormView):
+    template_name = "cad_agenda.html"
+    form_class = AgendaForm
+    success_url = reverse_lazy("cons_agenda")
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.save()
+        messages.success(self.request, 'Salvo com sucesso')
+        return super().form_valid(form)
+    
+    def form_invalid(self, form, *args, **kwargs):
+        messages.error(self.request, 'Erro')
+        return super().form_invalid(form)
+    

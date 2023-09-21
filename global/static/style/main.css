@@ -134,9 +134,9 @@ a:not([href]):not([tabindex]) {
 }
 
 .btn-common:hover {
-  color: #F63854;
+  color: #FFBF3F;
   background: transparent;
-  border: 1px dotted #F63854;
+  border: 1px dotted #FFBF3F;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
   transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -144,23 +144,23 @@ a:not([href]):not([tabindex]) {
 }
 
 .btn-border {
-  color: #F63854;
+  color: #FFBF3F;
   background-color: transparent;
-  border: 1px solid #F63854;
+  border: 1px solid #FFBF3F;
   border-radius: 30px;
   text-transform: uppercase;
 }
 
 .btn-border:hover {
   color: #fff;
-  border-color: #F63854;
-  background-color: #F63854;
+  border-color: #FFBF3F;
+  background-color: #FFBF3F;
 }
 
 .btn-border:focus {
   color: #fff;
-  border-color: #F63854;
-  background-color: #F63854;
+  border-color: #FFBF3F;
+  background-color: #FFBF3F;
 }
 
 .btn-lg {
@@ -176,7 +176,7 @@ a:not([href]):not([tabindex]) {
 }
 
 .btn-rm:hover {
-  color: #F63854;
+  color: #FFBF3F;
 }
 
 button:focus {
@@ -287,7 +287,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   height: 100%;
   border-radius: 100%;
   border: 7px solid transparent;
-  border-top-color: #F63854;
+  border-top-color: #FFBF3F;
 }
 
 #loader-1:before {
@@ -375,12 +375,13 @@ hr {
 }
 
 #features .box-item .icon i {
-  color: #F63854;
+  color: #FFBF3F;
   font-size: 30px;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
+  cursor: pointer;
 }
 
 #features .box-item .text h4 {
@@ -404,7 +405,7 @@ hr {
 }
 
 #features .box-item:hover h4 {
-  color: #F63854;
+  color: #FFBF3F;
 }
 
 #features .show-box {

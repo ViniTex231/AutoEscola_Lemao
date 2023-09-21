@@ -82,6 +82,10 @@ class Agenda(Base):
     motorista = models.ForeignKey('Driver', on_delete=models.CASCADE)
     data = models.DateField()
     carro = models.ForeignKey('Carros', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Agenda'
+        verbose_name_plural = 'Agendas'
     
 
     def __str__(self) -> str:
