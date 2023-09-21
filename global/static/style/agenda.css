@@ -1,0 +1,15 @@
+.nossoContainer {
+    max-width: 95%;
+    margin: auto;
+}
+
+form {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.gap-5 {
+    gap: 2rem;
+}

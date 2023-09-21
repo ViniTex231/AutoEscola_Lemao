@@ -127,7 +127,7 @@ a:not([href]):not([tabindex]) {
 }
 
 .btn-common {
-  background-color: #F63854;
+  background-color: #FFBF3F;
   position: relative;
   z-index: 1;
   text-transform: uppercase;
@@ -171,7 +171,7 @@ a:not([href]):not([tabindex]) {
 
 .btn-rm {
   padding: 7px 0px;
-  color: #F63854;
+  color: #FFBF3F;
   text-transform: capitalize;
 }
 
@@ -184,7 +184,7 @@ button:focus {
 }
 
 .icon-close, .icon-check {
-  color: #F63854;
+  color: #FFBF3F;
 }
 
 .social-icon a {

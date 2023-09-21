@@ -1,4 +1,5 @@
 {% load static %}
+{% block content %}
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -9,18 +10,10 @@
     <link rel="stylesheet" href="{% static 'style/carros.css' %}">
 </head>
 <body>
-    <header class="header">
-        <a id="logo" href="#"><img src="{% static 'images/logosemfundo.png' %}" alt="Lemao Logo"></a>
 
-        <div>
-            <ul id="navbar">
-                <li class="lis"><a href="{% url 'index' %}">Home</a></li>
-                <li class="lis"><a href="{% url 'carros' %}">Carros</a></li>
-                <li class="lis"><a href="#">Motoristas</a></li>
-                <li class="lis"><a href="agenda.html">Agenda</a></li>
-            </ul>
-        </div>
-    </header>
+    <!-- Navbar Start -->
+    {% include 'navbar.html' %}
+    <!-- Navbar End -->
 
     <section id="services">
         <div class="pro-container">
@@ -39,5 +32,6 @@
         </div>
     </section>
 
+{% endblock %}
 </body>
 </html>

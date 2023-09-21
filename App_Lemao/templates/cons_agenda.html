@@ -4,64 +4,84 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Escola do Lemão</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'style/bootstrap.min.css' %}" >
-    <!-- Icon -->
-    <link rel="stylesheet" href="{% static 'fonts/line-icons.css' %}">
-    <!-- Owl carousel -->
-    <link rel="stylesheet" href="{% static 'style/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'style/owl.theme.css' %}">
-    
-    <!-- Animate -->
-    <link rel="stylesheet" href="{% static 'style/animate.css' %}">
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{% static 'style/main.css' %}">
-    <!-- Responsive Style -->
-    <link rel="stylesheet" href="{% static 'style/responsive.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Escola do Lemão</title>
+  <link rel="stylesheet" href="{% static 'style/style.css' %}">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'style/bootstrap.min.css' %}">
+  <!-- Icon -->
+  <link rel="stylesheet" href="{% static 'fonts/line-icons.css' %}">
+  <!-- Owl carousel -->
+  <link rel="stylesheet" href="{% static 'style/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'style/owl.theme.css' %}">
+
+  <!-- Animate -->
+  <link rel="stylesheet" href="{% static 'style/animate.css' %}">
+  <!-- Main Style -->
+  <link rel="stylesheet" href="{% static 'style/main.css' %}">
+  <!-- Responsive Style -->
+  <link rel="stylesheet" href="{% static 'style/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'style/agenda.css' %}">
 </head>
+
 <body>
 
-    <!-- Navbar Start -->
-    {% include 'navbar.html' %}
-    <!-- Navbar End -->
+  <!-- Navbar Start -->
+  {% include 'navbar.html' %}
+  <!-- Navbar End -->
 
-    <section id="features" class="section-padding">
-        <div class="container">
-          <div class="section-header text-center">          
-            <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Agenda</h2>
-            <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
-          </div>
-          <div class="row">
-            {% for a in agendas %}
-              <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="content-left">
-                  <div class="box-item wow fadeInLeft" data-wow-delay="0.3s">
-                    {% comment %} <span class="icon">
-                      <i class="lni-cross-circle"></i>
-                    </span> {% endcomment %}
-                    <div class="text">
+  <section id="features" class="section-padding">
+    <div class="nossoContainer">
+      <div class="section-header text-center">
+        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Agenda</h2>
+        <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+      </div>
+
+        <!-- Table for Days of the Week -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center">Segunda</th>
+              <th class="text-center">Terça</th>
+              <th class="text-center">Quarta</th>
+              <th class="text-center">Quinta</th>
+              <th class="text-center">Sexta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {% for a in agendas %}
+              <td class="">
+                <div class="box-item wow fadeInLeft border p-3" data-wow-delay="0.3s">
+                  <div class="text d-flex gap-5">
+                    <div>
                       <h4>{{ a.motorista }}</h4>
                       <p>{{ a.carro }}</p>
                       <p>{{ a.data }}</p>
-                      <form class="formBotao" method="post" action="{% url 'agenda_delete' a.pk %}"> {% csrf_token %}
-                        <button type="submit" class="icon"><i class="lni-cross-circle"></i></button>
-                      </form>
                     </div>
+                    <form class="formBotao m-auto" method="post" action="{% url 'agenda_delete' a.pk %}"> {% csrf_token %}
+                      <button type="submit" class="icon border-0 "><i class="lni-cross-circle"></i></button>
+                    </form>
                   </div>
                 </div>
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-      </section>
+              </td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+
+        
+    </div>
+  </section>
 
 
-{% endblock %}
+
+
+  {% endblock %}
 
 </body>
+
 </html>

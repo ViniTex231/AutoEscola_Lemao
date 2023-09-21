@@ -1,5 +1,11 @@
-form {
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
 }
 
 .form-control {
@@ -12,14 +18,35 @@ form {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem !important;
-}
-
-.mb-3 > button {
     margin-bottom: 0 !important;
 }
 
-.form-select{
+
+.form-select {
     height: 2rem;
-    width: 8rem;
+    width: 12rem;
+}
+
+h1 {
+    font-family: 'Spartan', sans-serif !important;
+}
+
+select {
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #002650 !important;
+    background-position: 205px center !important;
+    font-size: 1rem !important;
+    color: #fff !important;
+    text-indent: 0.01px !important;
+    text-overflow: "" !important;
+    border-radius: 0.4rem !important;
+}
+
+select::-ms-expand {
+    display: none !important;
+}
+
+option {
+    width: 8rem !important;
+    font-size: 1rem !important;
+    color: #fff !important;
 }

@@ -1,25 +1,19 @@
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar Carros</title>
+    <title>Auto Escola do Lemão</title>
     <link rel="stylesheet" href="{% static 'style/cons_carros.css' %}">
 </head>
 <body>
-    <header class="header">
-        <a id="logo" href="#"><img src="{% static 'images/logosemfundo.png' %}" alt="Lemao Logo"></a>
 
-        <div>
-            <ul id="navbar">
-                <li class="lis"><a href="{% url 'index' %}">Home</a></li>
-                <li class="lis"><a href="{% url 'carros' %}">Carros</a></li>
-                <li class="lis"><a href="{% url 'drivers' %}">Motoristas</a></li>
-                <li class="lis"><a href="agenda.html">Agenda</a></li>
-            </ul>
-        </div>
-    </header>
+    <!-- Navbar Start -->
+    {% include 'navbar.html' %}
+    <!-- Navbar End -->
+
     <section class="container">
         <form id="form" class="form" method="POST" action="{% url 'cons_carros' %}">{% csrf_token %}
             <div class="form-content">
@@ -71,6 +65,8 @@
         </table>
     </section>
 
+
+{% endblock %}
 <script src="https://kit.fontawesome.com/c9237383f1.js" crossorigin="anonymous"></script>
 </body>
 </html>

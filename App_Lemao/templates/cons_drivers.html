@@ -1,4 +1,5 @@
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,18 +9,11 @@
     <link rel="stylesheet" href="{% static 'style/cons_drivers.css' %}">
 </head>
 <body>
-    <header class="header">
-        <a id="logo" href="#"><img src="{% static 'images/logosemfundo.png' %}" alt="Lemao Logo"></a>
 
-        <div>
-            <ul id="navbar">
-                <li class="lis"><a href="{% url 'index' %}">Home</a></li>
-                <li class="lis"><a href="{% url 'carros' %}">Carros</a></li>
-                <li class="lis"><a href="{% url 'drivers' %}">Motoristas</a></li>
-                <li class="lis"><a href="agenda.html">Agenda</a></li>
-            </ul>
-        </div>
-    </header>
+    <!-- Navbar Start -->
+    {% include 'navbar.html' %}
+    <!-- Navbar End -->
+
     <section class="container">
         <form id="form" class="form" method="POST" action="{% url 'cons_drivers' %}">{% csrf_token %}
             <div class="form-content">
@@ -62,6 +56,7 @@
         </table>
     </section>
 
+{% endblock %}
 <script src="https://kit.fontawesome.com/c9237383f1.js" crossorigin="anonymous"></script>
 </body>
 </html>
