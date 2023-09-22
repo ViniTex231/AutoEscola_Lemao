@@ -53,22 +53,29 @@
           </thead>
           <tbody>
             <tr>
+
+
               {% for a in agendas %}
-              <td class="">
-                <div class="box-item wow fadeInLeft border p-3" data-wow-delay="0.3s">
-                  <div class="text d-flex gap-5">
-                    <div>
-                      <h4>{{ a.motorista }}</h4>
-                      <p>{{ a.carro }}</p>
-                      <p>{{ a.data }}</p>
+                {% if dia == 'Segunda' %}
+                <td class="">
+                  <div class="box-item wow fadeInLeft border p-3" data-wow-delay="0.3s">
+                    <div class="text d-flex gap-5">
+                      <div>
+                        <h4>{{ a.motorista }}</h4>
+                        <p>{{ a.carro }}</p>
+                        <p>{{ a.data }}</p>
+                      </div>
+                      <form class="formBotao m-auto" method="post" action="{% url 'agenda_delete' a.pk %}"> {% csrf_token %}
+                        <button type="submit" class="icon border-0 "><i class="lni-cross-circle"></i></button>
+                      </form>
                     </div>
-                    <form class="formBotao m-auto" method="post" action="{% url 'agenda_delete' a.pk %}"> {% csrf_token %}
-                      <button type="submit" class="icon border-0 "><i class="lni-cross-circle"></i></button>
-                    </form>
                   </div>
-                </div>
-              </td>
+                </td>
+                {% endif %}
               {% endfor %}
+
+
+
             </tr>
           </tbody>
         </table>

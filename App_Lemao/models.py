@@ -79,9 +79,17 @@ class Funcionario(Base):
         return self.nome
     
 class Agenda(Base):
+    DIAS = (
+        ('segunda', 'Segunda'),
+        ('terca', 'Terça'),
+        ('quarta', 'Quarta'),
+        ('quinta', 'Quinta'),
+        ('sexta', 'Sexta'),
+    )
     motorista = models.ForeignKey('Driver', on_delete=models.CASCADE)
     data = models.DateField()
     carro = models.ForeignKey('Carros', on_delete=models.CASCADE)
+    dia = models.CharField('Dia', max_length=7, choices=DIAS)
 
     class Meta:
         verbose_name = 'Agenda'

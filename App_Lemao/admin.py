@@ -16,4 +16,4 @@ class CargoAdmin(admin.ModelAdmin):
 
 @admin.register(Agenda)
 class AgendaAdmin(admin.ModelAdmin):
-    list_display = ('motorista', 'data', 'carro', 'ativo', 'modificado')
+    list_display = ('motorista', 'data', 'carro', 'dia', 'ativo', 'modificado')
