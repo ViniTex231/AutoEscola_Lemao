@@ -21,3 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('App_Lemao.urls')),
 ]
+
+admin.site.site_header = 'Auto Escola do Lemão'
+admin.site.site_title = 'Auto Escola do Lemão'
+admin.site.index_title = 'Sistema de Escalas'
