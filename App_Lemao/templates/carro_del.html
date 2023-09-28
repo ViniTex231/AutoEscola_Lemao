@@ -1,0 +1,34 @@
+{% load static %}
+{% load bootstrap5 %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Escola do Lemão</title>
+    <link rel="stylesheet" href="{% static 'style/cons_carros.css' %}">
+    {% bootstrap_css %}
+</head>
+<body>
+
+    <!-- Navbar Start -->
+    {% include 'navbar.html' %}
+    <!-- Navbar End -->
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Tem certeza que deseja deletar o carro "{{ object }}"?</p>
+        {% buttons %}
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <button type="submit" class="btn btn-danger">
+                <a href="{% url 'index' %}">Cancelar</a>
+            </button>
+        {% endbuttons %}
+    </form>
+
+
+{% endblock %}
+<script src="https://kit.fontawesome.com/c9237383f1.js" crossorigin="anonymous"></script>
+</body>
+</html>

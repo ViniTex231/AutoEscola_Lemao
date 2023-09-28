@@ -19,17 +19,17 @@
             <div class="form-content">
                 <br>
                 <label for="carros">Carro</label>
-                <input type="text" id="nomeCarro" name="nomeCarro" placeholder="Digite o nome do carro">
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do carro">
             </div>
             <div class="form-content">
                 <br>
                 <label for="carros">Placa</label>
-                <input type="text" id="placaCarro" name="placaCarro" placeholder="Digite a placa do carro">
+                <input type="text" id="placa" name="placa" placeholder="Digite a placa do carro">
             </div>
             <div class="form-content">
                 <br>
                 <label for="carros">Dono</label>
-                <input type="text" id="donoCarro" name="donoCarro" placeholder="Digite o dono do carro">
+                <input type="text" id="dono" name="dono" placeholder="Digite o dono do carro">
             </div>
 
             <div class="botoes">
@@ -51,15 +51,15 @@
                 <th>Cor</th>
                 <th>Dono</th>
             </tr>
-            {% for igs in dados_carros %}
+            {% for carro in carros %}
             <tr>
-                <td>{{igs.nome}}</td>
-                <td>{{igs.placa}}</td>
-                <td>{{igs.ano}}</td>
-                <td>{{igs.cor}}</td>
-                <td>{{igs.dono}}</td>
-                <td><a href="/edit_carros/{{igs.id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                <td><a href="/delete_carro/{{igs.id}}"><i class="fa-solid fa-trash"></i></a></td>
+                <td>{{carro.nome}}</td>
+                <td>{{carro.placa}}</td>
+                <td>{{carro.ano}}</td>
+                <td>{{carro.cor}}</td>
+                <td>{{carro.dono}}</td>
+                <td><a href="{% url 'upd_carro' carro.pk %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                <td><a href="{% url 'del_carro' carro.pk %}"><i class="fa-solid fa-trash"></i></a></td>
             <tr>
             {% endfor %}
         </table>

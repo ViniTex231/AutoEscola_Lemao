@@ -26,21 +26,21 @@
         <h1>Cadastro de Veículos</h1>
 
 
-        <form id='form' class='form' method='POST' action='{% url 'salvar_carro_novo' %}'>{% csrf_token %}
+        <form id='form' class='form' method='POST'>{% csrf_token %}
             <label for="nomeCarro">Nome do Carro:</label>
-            <input type="text" id="nomeCarro" name="nomeCarro" required>
+            <input type="text" id="nome" name="nome" required>
 
             <label for="placaCarro">Placa do Carro:</label>
-            <input type="text" id="placaCarro" name="placaCarro" required>
+            <input type="text" id="placa" name="placa" required>
 
             <label for="anoCarro">Ano do Carro:</label>
-            <input type="number" id="anoCarro" name="anoCarro" required>
+            <input type="number" id="ano" name="ano" required>
 
             <label for="corCarro">Cor do Carro:</label>
-            <input type="text" id="corCarro" name="corCarro" required>
+            <input type="text" id="cor" name="cor" required>
 
             <label for="donoCarro">Dono do Carro:</label>
-            <input type="text" id="donoCarro" name="donoCarro" required>
+            <input type="text" id="dono" name="dono" required>
     
             <input class="button" type="submit" value="Enviar">
         </form>

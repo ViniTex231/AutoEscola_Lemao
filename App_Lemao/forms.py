@@ -9,3 +9,13 @@ class AgendaForm(forms.ModelForm):
         widgets = {
             'data': DateInput(attrs={'type': 'date'})
         }
+
+class DriverFilterForm(forms.Form):
+    nome = forms.CharField(max_length=100, required=False)
+    cnh = forms.CharField(max_length=20, required=False)
+
+class CarroFilterForm(forms.Form):
+    nome = forms.CharField(max_length=50)
+    placa = forms.CharField(max_length=8)
+    dono = forms.CharField(max_length=20)
+    
