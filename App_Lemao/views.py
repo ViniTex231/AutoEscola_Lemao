@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from .models import Carros, Driver, Servico, Funcionario, Agenda
 from django.views.generic import ListView, TemplateView, FormView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -9,10 +8,13 @@ from .forms import AgendaForm, DriverFilterForm, CarroFilterForm
 
 # Create your views here.
 class IndexView(TemplateView):
+    template_name = 'login.html'
+
+class HomeView(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
+        context = super(HomeView, self).get_context_data(**kwargs)
         context['servicos'] = Servico.objects.order_by('?').all()
         context['funcionarios'] = Funcionario.objects.order_by('?').all()
         return context

@@ -1,12 +1,13 @@
 from django.urls import path, include
 from . import views
-from .views import IndexView, CarrosView, DriversView, AgendaView, AgendaConsView, AgendaDeleteView, AgendaFormView, CreateCarroView, CreateDriverView, IndexCarroView, IndexDriverView, UpdateCarroView, UpdateDriverView, DeleteCarroView, DeleteDriverView
+from .views import IndexView, HomeView, CarrosView, DriversView, AgendaView, AgendaConsView, AgendaDeleteView, AgendaFormView, CreateCarroView, CreateDriverView, IndexCarroView, IndexDriverView, UpdateCarroView, UpdateDriverView, DeleteCarroView, DeleteDriverView
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
+    path('home/', HomeView.as_view(), name='home'),
     path('carros/', CarrosView.as_view(), name='carros'),
     path('drivers/', DriversView.as_view(), name='drivers'),
     path('cad_carros/', CreateCarroView.as_view(), name='cad_carros'),
