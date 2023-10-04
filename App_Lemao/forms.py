@@ -5,7 +5,7 @@ from .models import Agenda
 class AgendaForm(forms.ModelForm):
     class Meta:
         model = Agenda
-        fields = ['motorista', 'data', 'carro']
+        fields = ['motorista', 'data', 'carro', 'dia']
         widgets = {
             'data': DateInput(attrs={'type': 'date'})
         }

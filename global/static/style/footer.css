@@ -1,9 +1,11 @@
 .section p1{
     padding: 40px 40px !important;
+    margin-bottom: 0rem;
 }
 
 footer {
     margin-top: 8rem;
+    margin-bottom: 0rem;
     background: #002650;
     display: flex;
     flex-wrap: wrap;

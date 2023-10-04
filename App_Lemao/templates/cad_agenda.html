@@ -2,30 +2,9 @@
 {% block content %}
 {% load bootstrap5 %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Escola do Lemão</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'style/bootstrap.min.css' %}" >
-    <!-- Icon -->
-    <link rel="stylesheet" href="{% static 'fonts/line-icons.css' %}">
-    <!-- Owl carousel -->
-    <link rel="stylesheet" href="{% static 'style/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'style/owl.theme.css' %}">
-    
-    <!-- Animate -->
-    <link rel="stylesheet" href="{% static 'style/animate.css' %}">
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{% static 'style/main.css' %}">
-    <!-- Responsive Style -->
-    <link rel="stylesheet" href="{% static 'style/responsive.css' %}">
-    <link rel="stylesheet" href="{% static 'style/forms.css' %}">
-</head>
-<body>
+    <!-- Base Start -->
+    {% include 'base.html' %}
+    <!-- Base End -->
 
     <!-- Navbar Start -->
     {% include 'navbar.html' %}
@@ -45,6 +24,9 @@
         </form>
     </div>
 
+    <!-- Footer Start -->
+    {% include 'footer.html' %}
+    <!-- Footer End -->
 
 
 {% endblock %}

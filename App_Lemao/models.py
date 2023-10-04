@@ -97,4 +97,4 @@ class Agenda(Base):
     
 
     def __str__(self) -> str:
-        return f'{self.motorista} {self.data} {self.carro}'
+        return f'{self.motorista} {self.data} {self.carro} {self.dia}'

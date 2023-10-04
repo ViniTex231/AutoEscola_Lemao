@@ -1,14 +1,10 @@
 {% load static %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar Carros</title>
-    <link rel="stylesheet" href="{% static 'style/cons_drivers.css' %}">
-</head>
-<body>
+
+    <!-- Base Start -->    
+    {% include 'base.html' %}
+    <!-- Base End -->  
+
 
     <!-- Navbar Start -->
     {% include 'navbar.html' %}
@@ -55,6 +51,10 @@
             {% endfor %}
         </table>
     </section>
+
+    <!-- Footer Start -->    
+    {% include 'footer.html' %}
+    <!-- Footer End -->  
 
 {% endblock %}
 <script src="https://kit.fontawesome.com/c9237383f1.js" crossorigin="anonymous"></script>

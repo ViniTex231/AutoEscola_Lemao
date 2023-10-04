@@ -1,30 +1,9 @@
 {% load static %}
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Escola do Lemão</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'style/bootstrap.min.css' %}" >
-    <!-- Icon -->
-    <link rel="stylesheet" href="{% static 'fonts/line-icons.css' %}">
-    <!-- Owl carousel -->
-    <link rel="stylesheet" href="{% static 'style/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'style/owl.theme.css' %}">
-    
-    <!-- Animate -->
-    <link rel="stylesheet" href="{% static 'style/animate.css' %}">
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{% static 'style/main.css' %}">
-    <!-- Responsive Style -->
-    <link rel="stylesheet" href="{% static 'style/responsive.css' %}">
-    <link rel="stylesheet" href="{% static 'style/footer.css' %}">
-</head>
-<body>
+    <!-- Base Start -->
+    {% include 'base.html' %}
+    <!-- Base Start -->
 
     <!-- Navbar Start -->
     {% include 'navbar.html' %}
@@ -38,35 +17,9 @@
     {% include 'employers.html' %}
     <!-- Employers End -->
     
-
-    <footer id="footer" class="section-p1">
-        <div class="col">
-            <img class="logo" src="{% static 'images/logosemfundo.png' %}" alt="">
-        </div>
-        <div class="col">
-            <h4>Contato</h4>
-            <p><strong>Telefone: </strong> (19) 99999-9999</p>
-            <p><strong>Horário: </strong> Seg - Sab, 08:00 - 19:00</p>
-            <div class="follow">
-                <h4>Siga-nos</h4>
-                <div class="icon">
-                    <i class="lni-instagram"></i>
-                    <i id="text">@lemaodriving</i>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <h4>Sobre</h4>
-            <a href="#footer">Sobre nós</a>
-            <a href="#footer">Contatos</a>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023, Alemão Dev - Auto Escola do Lemão</p>
-        </div>
-
-    </footer>
-
+    <!-- Footer Start -->
+    {% include 'footer.html' %}
+    <!-- Footer End -->
 {% endblock %}
 
 </body>
