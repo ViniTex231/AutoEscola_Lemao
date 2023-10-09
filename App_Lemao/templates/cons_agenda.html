@@ -34,11 +34,10 @@
 
 
               {% for a in agendas %}
-                {% comment %} {% if a.dia == 'segunda' %} {% endcomment %}
-                <td class="">
-                  <div class="box-item wow fadeInLeft border p-3" data-wow-delay="0.3s">
-                    <div class="text d-flex gap-5">
-                      <div>
+              <td class="">
+                <div class="box-item wow fadeInLeft border p-3" data-wow-delay="0.3s">
+                  <div class="text d-flex gap-5">
+                    <div>
                         <h4>{{ a.motorista }}</h4>
                         <p>{{ a.carro }}</p>
                         <p>{{ a.data }}</p>
@@ -49,7 +48,6 @@
                     </div>
                   </div>
                 </td>
-                {% comment %} {% endif %} {% endcomment %}
               {% endfor %}
 
 
