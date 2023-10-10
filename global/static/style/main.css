@@ -372,6 +372,7 @@ hr {
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
+  background: none;
 }
 
 #features .box-item .icon i {

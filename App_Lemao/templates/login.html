@@ -16,14 +16,19 @@
     <!-- Navbar End -->
 
     <div class="page">
-        <form method="post" class="formLogin">
+        <form method="post" class="formLogin" action="{% url 'login' %}">{% csrf_token %}
             <h1>Login</h1>
             <p>Digite os seus dados de acesso no campo abaixo</p>
+
             <label for="email">E-mail</label>
-            <input type="email" placeholder="Digite seu e-mail" autofocus="true" />
+            <input type="email" id="username" name="username" placeholder="Digite seu e-mail" autofocus="true" />
+
             <label for="password">Senha</label>
-            <input type="password" placeholder="Digite sua senha" />
-            <input type="submit" class="button" value="Acessar" />
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" />
+
+            <button type="submit" value="login" class="btn_conf_cancel btn_confirmar" >Acessar</button>
+            <input type="hidden" name="next" value="{{ next }}">
+
         </form>
     </div>
 
