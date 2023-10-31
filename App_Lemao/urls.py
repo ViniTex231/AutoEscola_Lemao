@@ -1,10 +1,12 @@
-from django.urls import path, include
-from . import views
-from .views import IndexView, HomeView, CarrosView, DriversView, AgendaView, AgendaConsView, AgendaDeleteView, AgendaFormView, CreateCarroView, CreateDriverView, IndexCarroView, IndexDriverView, UpdateCarroView, UpdateDriverView, DeleteCarroView, DeleteDriverView
-
+from django.urls import path
+from 
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.routers import SimpleRouter
 
+router = SimpleRouter()
+
+"""
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('home/', HomeView.as_view(), name='home'),
@@ -24,6 +26,7 @@ urlpatterns = [
     path('<int:pk>/deleted/', DeleteDriverView.as_view(), name='del_driver'),
     
 ]
+"""
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,19 +1,19 @@
 from django.contrib import admin
-from .models import Servico, Funcionario, Cargo, Agenda
+from .models import Service, Employee, Role, Schedule
 
 # Register your models here.
-@admin.register(Servico)
-class ServicoAdmin(admin.ModelAdmin):
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
     list_display = ('servico', 'icone', 'ativo', 'modificado')
 
-@admin.register(Funcionario)
-class FuncionarioAdmin(admin.ModelAdmin):
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('nome', 'cargo', 'ativo', 'modificado')
 
-@admin.register(Cargo)
-class CargoAdmin(admin.ModelAdmin):
+@admin.register(Role)
+class RoleAdmin(admin.ModelAdmin):
     list_display = ('cargo', 'ativo', 'modificado')
 
-@admin.register(Agenda)
-class AgendaAdmin(admin.ModelAdmin):
+@admin.register(Schedule)
+class ScheduleAdmin(admin.ModelAdmin):
     list_display = ('motorista', 'data', 'carro', 'dia', 'ativo', 'modificado')

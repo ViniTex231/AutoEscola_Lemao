@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import Carros, Driver, Servico, Funcionario, Agenda
+from .models import Car, Driver, Service, Role, Employee, Schedule
 from django.views.generic import ListView, TemplateView, FormView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .forms import AgendaForm, DriverFilterForm, CarroFilterForm
+from .forms import ScheduleForm, DriverFilterForm, CarFilterForm
+
 
 # Create your views here.
+
+"""
 class IndexView(TemplateView):
     template_name = 'login.html'
 
@@ -161,4 +164,6 @@ class AgendaFormView(FormView):
     def form_invalid(self, form, *args, **kwargs):
         messages.error(self.request, 'Erro')
         return super().form_invalid(form)
-    
+"""
+
+#API V1

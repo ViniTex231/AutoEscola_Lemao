@@ -14,15 +14,23 @@ class Driver(models.Model):
     data = models.CharField(max_length=50)
     cnh = models.CharField(max_length=2)
 
+    class Meta:
+        verbose_name = 'Driver'
+        verbose_name_plural = 'Drivers'
+
     def __str__(self):
         return self.nome
 
-class Carros(models.Model):
+class Car(models.Model):
     nome = models.CharField(max_length=50)
     placa = models.CharField(max_length=8)
     ano = models.CharField(max_length=4)
     cor = models.CharField(max_length=10)
     dono = models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name = 'Car'
+        verbose_name_plural = 'Cars'
 
     def __str__(self):
         return self.nome
@@ -35,7 +43,7 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-class Servico(Base):
+class Service(Base):
     ICONE_CHOICES = (
         ('lni-car', 'Carro'),
         ('lni-bus', 'Onibus'),
@@ -46,23 +54,23 @@ class Servico(Base):
     icone = models.CharField('Icone', max_length=12, choices=ICONE_CHOICES)
 
     class Meta:
-        verbose_name = 'Serviço'
-        verbose_name_plural = 'Serviços'
+        verbose_name = 'Service'
+        verbose_name_plural = 'Services'
 
     def __str__(self):
         return self.servico
     
-class Cargo(Base):
+class Role(Base):
     cargo = models.CharField('Cargo', max_length=100)
 
     class Meta:
-        verbose_name = 'Cargo'
-        verbose_name_plural = 'Cargos'
+        verbose_name = 'Role'
+        verbose_name_plural = 'Roles'
 
     def __str__(self):
         return self.cargo
     
-class Funcionario(Base):
+class Employee(Base):
     nome = models.CharField('Nome', max_length=100)
     cargo = models.ForeignKey('App_Lemao.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
     bio = models.TextField('Bio', max_length=200)
@@ -72,13 +80,13 @@ class Funcionario(Base):
     instagram = models.CharField('Instagram', max_length=100, default='#')
 
     class Meta:
-        verbose_name = 'Funcionário'
-        verbose_name_plural = 'Funcionários'
+        verbose_name = 'Employee'
+        verbose_name_plural = 'Employees'
 
     def __str__(self):
         return self.nome
     
-class Agenda(Base):
+class Schedule(Base):
     DIAS = (
         ('segunda', 'Segunda'),
         ('terca', 'Terça'),
@@ -92,8 +100,8 @@ class Agenda(Base):
     dia = models.CharField('Dia', max_length=7, choices=DIAS)
 
     class Meta:
-        verbose_name = 'Agenda'
-        verbose_name_plural = 'Agendas'
+        verbose_name = 'Schedule'
+        verbose_name_plural = 'Schedules'
     
 
     def __str__(self) -> str:
