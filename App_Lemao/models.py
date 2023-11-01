@@ -72,7 +72,7 @@ class Role(Base):
     
 class Employee(Base):
     nome = models.CharField('Nome', max_length=100)
-    cargo = models.ForeignKey('App_Lemao.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
+    cargo = models.ForeignKey('App_Lemao.Role', verbose_name='Role', on_delete=models.CASCADE)
     bio = models.TextField('Bio', max_length=200)
     imagem = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
     facebook = models.CharField('Facebook', max_length=100, default='#')
@@ -96,7 +96,7 @@ class Schedule(Base):
     )
     motorista = models.ForeignKey('Driver', on_delete=models.CASCADE)
     data = models.DateField()
-    carro = models.ForeignKey('Carros', on_delete=models.CASCADE)
+    carro = models.ForeignKey('Car', on_delete=models.CASCADE)
     dia = models.CharField('Dia', max_length=7, choices=DIAS)
 
     class Meta:

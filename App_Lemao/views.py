@@ -1,15 +1,15 @@
-from django.shortcuts import render
-from django.contrib import messages
 from .models import Car, Driver, Service, Role, Employee, Schedule
-from django.views.generic import ListView, TemplateView, FormView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
 from .forms import ScheduleForm, DriverFilterForm, CarFilterForm
+from .serializers import *
+from rest_framework import generics, viewsets, mixins, permissions
+from rest_framework.generics import get_object_or_404
+from rest_framework.response import Response
+from django.views.generic import TemplateView
 
 
 # Create your views here.
 
-"""
+
 class IndexView(TemplateView):
     template_name = 'login.html'
 
@@ -18,8 +18,8 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['servicos'] = Servico.objects.order_by('?').all()
-        context['funcionarios'] = Funcionario.objects.order_by('?').all()
+        context['servicos'] = Service.objects.order_by('?').all()
+        context['funcionarios'] = Employee.objects.order_by('?').all()
         return context
 
 class CarrosView(TemplateView):
@@ -28,6 +28,7 @@ class CarrosView(TemplateView):
 class DriversView(TemplateView):
     template_name = 'drivers.html'
 
+"""
 #Create
 class CreateCarroView(CreateView):
     model = Carros
@@ -167,3 +168,32 @@ class AgendaFormView(FormView):
 """
 
 #API V1
+
+class DriverViewSet(viewsets.ModelViewSet):
+    queryset = Driver.objects.all()
+    serializer_class = DriverSerializer
+
+
+class CarViewSet(viewsets.ModelViewSet):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
+
+
+class ServiceViewSet(viewsets.ModelViewSet):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+
+
+class RoleViewSet(viewsets.ModelViewSet):
+    queryset = Role.objects.all()
+    serializer_class = RoleSerializer
+
+
+class EmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
+
+
+class ScheduleViewSet(viewsets.ModelViewSet):
+    queryset = Schedule.objects.all()
+    serializer_class = ScheduleSerializer
